@@ -13,7 +13,9 @@ $now = time();
 
 // далее нужно вычислить оставшееся время до начала следующих суток и записать его в переменную $lot_time_remaining
 // ...
-$lot_time_remaining = date("H:i:s", $tomorrow - $now);
+$x = $tomorrow - $now;
+$y = sprintf('%02d:%02d:%02d', $x / 3600, ($x % 3600) / 60, $x % 60);
+$lot_time_remaining = $y;
 
 ?>
 <!DOCTYPE html>
