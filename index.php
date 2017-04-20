@@ -6,13 +6,15 @@ date_default_timezone_set('Europe/Moscow');
 $lot_time_remaining = "00:00";
 
 // временная метка для полночи следующего дня
-$tomorrow = strtotime('tomorrow midnight');
+$tomorrow = strtotime('13.04.2017 00:00');
 
 // временная метка для настоящего времени
 $now = time();
 
 // далее нужно вычислить оставшееся время до начала следующих суток и записать его в переменную $lot_time_remaining
 // ...
+$lot_time_remaining = date("H:i:s", $tomorrow - $now);
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
