@@ -6,7 +6,7 @@ date_default_timezone_set('Europe/Moscow');
 $lot_time_remaining = "00:00";
 
 // временная метка для полночи следующего дня
-$tomorrow = strtotime('13.04.2017 00:00');
+$tomorrow = strtotime('21.04.2017 00:00');
 
 // временная метка для настоящего времени
 $now = time();
