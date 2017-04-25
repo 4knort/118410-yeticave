@@ -16,6 +16,48 @@ $x = $tomorrow - $now;
 $y = sprintf('%02d:%02d:%02d', $x / 3600, ($x % 3600) / 60, $x % 60);
 $lot_time_remaining = $y;
 
+$categories = ['Доски и лыжи','Крепления','Ботинки','Одежда','Инструменты','Разное'];
+
+$lots = [
+    [
+        'name' => '2014 Rossignol District Snowboard', 
+        'categorie' => 'Доски и лыжи', 
+        'price' => '10999', 
+        'img' => 'img/lot-1.jpg'
+    ]
+    [
+        'name' => 'name', 
+        'categorie' => 'categorie', 
+        'price' => 'price', 
+        'img' => 'img'
+    ]
+    [
+        'name' => 'name', 
+        'categorie' => 'categorie', 
+        'price' => 'price', 
+        'img' => 'img'
+    ]
+    [
+        'name' => 'name', 
+        'categorie' => 'categorie', 
+        'price' => 'price', 
+        'img' => 'img'
+    ]
+    [
+        'name' => 'name', 
+        'categorie' => 'categorie', 
+        'price' => 'price', 
+        'img' => 'img'
+    ]
+    [
+        'name' => 'name', 
+        'categorie' => 'categorie', 
+        'price' => 'price', 
+        'img' => 'img'
+    ]
+
+]
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
