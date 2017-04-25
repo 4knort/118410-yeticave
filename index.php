@@ -24,31 +24,31 @@ $lots = [
         'categorie' => 'Доски и лыжи', 
         'price' => '10999', 
         'img' => 'img/lot-1.jpg'
-    ]
+    ],
     [
         'name' => 'name', 
         'categorie' => 'categorie', 
         'price' => 'price', 
         'img' => 'img'
-    ]
+    ],
     [
         'name' => 'name', 
         'categorie' => 'categorie', 
         'price' => 'price', 
         'img' => 'img'
-    ]
+    ],
     [
         'name' => 'name', 
         'categorie' => 'categorie', 
         'price' => 'price', 
         'img' => 'img'
-    ]
+    ],
     [
         'name' => 'name', 
         'categorie' => 'categorie', 
         'price' => 'price', 
         'img' => 'img'
-    ]
+    ],
     [
         'name' => 'name', 
         'categorie' => 'categorie', 
