@@ -6,17 +6,57 @@ date_default_timezone_set('Europe/Moscow');
 $lot_time_remaining = "00:00";
 
 // временная метка для полночи следующего дня
-$tomorrow = strtotime('21.04.2017 00:00');
+$tomorrow = strtotime('22.04.2017 00:00');
 
 // временная метка для настоящего времени
 $now = time();
-
 // далее нужно вычислить оставшееся время до начала следующих суток и записать его в переменную $lot_time_remaining
 // ...
 $x = $tomorrow - $now;
 $y = sprintf('%02d:%02d:%02d', $x / 3600, ($x % 3600) / 60, $x % 60);
 $lot_time_remaining = $y;
 
+$categories = ['Доски и лыжи','Крепления','Ботинки','Одежда','Инструменты','Разное'];
+
+$lots = [
+    [
+        'name' => '2014 Rossignol District Snowboard', 
+        'categorie' => 'Доски и лыжи', 
+        'price' => '10999', 
+        'img' => 'img/lot-1.jpg'
+    ],
+    [
+        'name' => 'DC Ply Mens 2016/2017 Snowboard  ', 
+        'categorie' => 'Доски и лыжи', 
+        'price' => '159999', 
+        'img' => 'img/lot-2.jpg'
+    ],
+    [
+        'name' => 'Крепления Union Contact Pro 2015 года размер L/XL', 
+        'categorie' => 'Крепления', 
+        'price' => '8000', 
+        'img' => 'img/lot-3.jpg'
+    ],
+    [
+        'name' => 'Ботинки для сноуборда DC Mutiny Charocal ', 
+        'categorie' => 'Ботинки', 
+        'price' => '10999', 
+        'img' => 'img/lot-4.jpg'
+    ],
+    [
+        'name' => 'Куртка для сноуборда DC Mutiny Charocal  ', 
+        'categorie' => 'Одежда', 
+        'price' => '7500', 
+        'img' => 'img/lot-5.jpg'
+    ],
+    [
+        'name' => 'Маска Oakley Canopy  ', 
+        'categorie' => 'Разное', 
+        'price' => '5400', 
+        'img' => 'img/lot-6.jpg'
+    ]
+
+]
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -81,28 +121,32 @@ $lot_time_remaining = $y;
         <div class="lots__header">
             <h2>Открытые лоты</h2>
             <select class="lots__select">
-                <option>Все категории</option>
+                <?php foreach ($categories as $key => $val): ?>
+                    <option><?=$val; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <ul class="lots__list">
-            <li class="lots__item lot">
-                <div class="lot__image">
-                    <img src="img/lot-1.jpg" width="350" height="260" alt="Сноуборд">
-                </div>
-                <div class="lot__info">
-                    <span class="lot__category">Доски и лыжи</span>
-                    <h3 class="lot__title"><a class="text-link" href="">2014 Rossignol District Snowboard</a></h3>
-                    <div class="lot__state">
-                        <div class="lot__rate">
-                            <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost">10 999<b class="rub">р</b></span>
-                        </div>
-                        <div class="lot__timer timer">
-                            <?=$lot_time_remaining;?>
+            <?php foreach ($lots as $key => $val): ?>
+                <li class="lots__item lot">
+                    <div class="lot__image">
+                        <img src="<?=$val['img'];?>" width="350" height="260" alt="Сноуборд">
+                    </div>
+                    <div class="lot__info">
+                        <span class="lot__category"><?=$val['category'];?></span>
+                        <h3 class="lot__title"><a class="text-link" href=""><?=$val['name'];?></a></h3>
+                        <div class="lot__state">
+                            <div class="lot__rate">
+                                <span class="lot__amount">Стартовая цена</span>
+                                <span class="lot__cost"><?=$val['price'];?><b class="rub">р</b></span>
+                            </div>
+                            <div class="lot__timer timer">
+                                <?=$lot_time_remaining;?>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            <?php endforeach; ?>
         </ul>
     </section>
 </main>
