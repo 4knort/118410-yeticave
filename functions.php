@@ -85,9 +85,10 @@
     return $formatedDate;
   };
 
-  function include_template($file) {
-    if (file_exists($file)) {
-      require_once $file;
+  function include_template($file, $data) {
+    $filePath = 'templates/' . $file . '.php';
+    if (file_exists($filePath)) {
+      require_once $filePath;
     } else { 
       return '';
     }

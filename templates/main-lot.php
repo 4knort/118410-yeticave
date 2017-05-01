@@ -66,7 +66,7 @@
                     <h3>История ставок (<span>4</span>)</h3>
                     <!-- заполните эту таблицу данными из массива $bets-->
                     <table class="history__list">
-                        <?php foreach ($bets as $key => $val): ?>
+                        <?php foreach ($data['bets'] as $key => $val): ?>
                             <tr class="history__item">
                                 <td class="history__name"><?=$val['name'];?></td>
                                 <td class="history__price"><?=$val['price'];?> р</td>

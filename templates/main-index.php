@@ -27,13 +27,13 @@
         <div class="lots__header">
             <h2>Открытые лоты</h2>
             <select class="lots__select">
-                <?php foreach ($categories as $key => $val): ?>
+                <?php foreach ($data['categories'] as $key => $val): ?>
                     <option><?=$val; ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
         <ul class="lots__list">
-            <?php foreach ($lots as $key => $val): ?>
+            <?php foreach ($data['lots'] as $key => $val): ?>
                 <li class="lots__item lot">
                     <div class="lot__image">
                         <img src="<?=$val['img'];?>" width="350" height="260" alt="Сноуборд">

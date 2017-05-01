@@ -11,10 +11,10 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-  <?=include("templates/header.php"); ?>
+  <?=include_template("header", []); ?>
 
-  <?=include("templates/main-lot.php"); ?>
+  <?=include_template("main-lot", ['bets' => $bets]); ?>
 
-  <?=include("templates/footer.php"); ?>
+  <?=include_template("footer", []); ?>
 </body>
 </html>
