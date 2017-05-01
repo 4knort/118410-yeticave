@@ -84,4 +84,12 @@
 
     return $formatedDate;
   };
+
+  function include_template($file) {
+    if (file_exists($file)) {
+      require_once $file;
+    } else { 
+      return '';
+    }
+  }
 ?>
