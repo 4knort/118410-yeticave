@@ -1,5 +1,9 @@
 <?php 
   require 'functions.php';
+  require 'lots.php';
+
+  $currentLot = $lots[$_GET['id']];
+  $minBet = 500;
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +17,7 @@
 <body>
   <?=include_template("header", []); ?>
 
-  <?=include_template("main-lot", ['bets' => $bets]); ?>
+  <?=include_template("main-lot", ['lots' => $lots, 'bets' => $bets, 'currentLot' => $currentLot, 'minBet' => $minBet]); ?>
 
   <?=include_template("footer", []); ?>
 </body>
