@@ -4,6 +4,10 @@
 
   $currentLot = $lots[$_GET['id']];
   $minBet = 500;
+
+  if(gettype($currentLot) == null) {
+    header('HTTP/1.0 404 not found');
+  }
 ?>
 
 <!DOCTYPE html>
