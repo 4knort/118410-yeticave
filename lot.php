@@ -1,5 +1,13 @@
 <?php 
   require 'functions.php';
+  require 'lots.php';
+
+  $currentLot = $lots[$_GET['id']];
+  $minBet = 500;
+
+  if(!isset($currentLot)) {
+    return header('HTTP/1.0 404 not found');
+  }
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +21,7 @@
 <body>
   <?=include_template("header", []); ?>
 
-  <?=include_template("main-lot", ['bets' => $bets]); ?>
+  <?=include_template("main-lot", ['lots' => $lots, 'bets' => $bets, 'currentLot' => $currentLot, 'minBet' => $minBet]); ?>
 
   <?=include_template("footer", []); ?>
 </body>
