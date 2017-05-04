@@ -1,17 +1,19 @@
 <?php 
   require 'functions.php';
   $formClass = 'form form--add-lot container';
-  $formItem = 'form__item';
+  $errorArr = [];
 
   function validation($formElements) {
     $value = '';
-    global $formClass,$formItem;
+    global $formClass,$formItem,$errorArr;
     
 
     foreach ($formElements as $key => $val) {
-      if($val == $value) {
+      if($val == $value || $val == 'Выберите категорию') {
         $formClass = $formClass . ' form--invalid';
-        $formItem = $formItem . ' form__item--invalid';
+        array_push($errorArr, 'form__item--invalid');
+      } else {
+        array_push($errorArr, '');
       }
     }
   }
@@ -30,7 +32,7 @@
 <body>
   <?=include_template("header", []); ?>
 
-  <?=include_template("main-add-lot", ['formClass' => $formClass, 'formItem' => $formItem])?>
+  <?=include_template("main-add-lot", ['formClass' => $formClass, 'errorArr' => $errorArr])?>
 
   <?=include_template("footer", []); ?>
 </body>

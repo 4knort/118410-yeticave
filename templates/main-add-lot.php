@@ -24,12 +24,12 @@
   <form class="<?=$data['formClass'];?>" action="add.php" method="post"> <!-- form--invalid -->
     <h2>Добавление лота</h2>
     <div class="form__container-two">
-      <div class="<?=$data['formItem'];?>"> <!-- form__item--invalid -->
+      <div class="<?='form__item ' . $data['errorArr'][0];?>"> <!-- form__item--invalid -->
         <label for="lot-name">Наименование</label>
         <input id="lot-name" type="text" name="lot-name" placeholder="Введите наименование лота">
         <span class="form__error"></span>
       </div>
-      <div class="<?=$data['formItem'];?>">
+      <div class="<?='form__item ' . $data['errorArr'][1];?>">
         <label for="category">Категория</label>
         <select id="category" name="category">
           <option>Выберите категорию</option>
@@ -74,7 +74,7 @@
         <input id="lot-step" type="number" name="lot-step" placeholder="0">
         <span class="form__error"></span>
       </div>
-      <div class="<?=$data['formItem'];?>">
+      <div class="<?='form__item ' . $data['errorArr'][2];?>">
         <label for="lot-date">Дата заверщения</label>
         <input class="form__input-date" id="lot-date" type="text" name="lot-date" placeholder="20.05.2017">
         <span class="form__error"></span>
