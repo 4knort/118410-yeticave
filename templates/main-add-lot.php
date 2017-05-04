@@ -24,12 +24,12 @@
   <form class="<?=$data['formClass'];?>" action="add.php" method="post" enctype="multipart/form-data"> <!-- form--invalid -->
     <h2>Добавление лота</h2>
     <div class="form__container-two">
-      <div class="<?='form__item ' . $data['errorArr'][0];?>"> <!-- form__item--invalid -->
+      <div class="<?='form__item ' . $data['errorArr']['lot-name-class'];?>"> <!-- form__item--invalid -->
         <label for="lot-name">Наименование</label>
         <input id="lot-name" type="text" name="lot-name" placeholder="Введите наименование лота">
-        <span class="form__error"></span>
+        <span class="form__error"><?=$data['errorArr']['lot-name'];?></span>
       </div>
-      <div class="<?='form__item ' . $data['errorArr'][1];?>">
+      <div class="form__item">
         <label for="category">Категория</label>
         <select id="category" name="category">
           <option>Выберите категорию</option>
@@ -64,15 +64,15 @@
       </div>
     </div>
     <div class="form__container-three">
-      <div class="form__item form__item--small">
+      <div class="<?='form__item form__item--small ' . $data['errorArr']['lot-rate-class'];?>">
         <label for="lot-rate">Начальная цена</label>
         <input id="lot-rate" type="number" name="lot-rate" placeholder="0">
-        <span class="form__error"></span>
+        <span class="form__error"><?=$data['errorArr']['lot-rate'];?></span>
       </div>
-      <div class="form__item form__item--small">
+      <div class="<?='form__item form__item--small ' . $data['errorArr']['lot-step-class'];?>">
         <label for="lot-step">Шаг ставки</label>
         <input id="lot-step" type="number" name="lot-step" placeholder="0">
-        <span class="form__error"></span>
+        <span class="form__error"><?=$data['errorArr']['lot-step'];?></span>
       </div>
       <div class="<?='form__item ' . $data['errorArr'][2];?>">
         <label for="lot-date">Дата заверщения</label>

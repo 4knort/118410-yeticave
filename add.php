@@ -2,26 +2,34 @@
   require 'functions.php';
   $formClass = 'form form--add-lot container';
   $errorArr = [];
+  $value = '';
+  $errors = false;
 
-  function validation($formElements) {
-    $value = '';
-    global $formClass,$formItem,$errorArr;
-    
-
-    foreach ($formElements as $key => $val) {
-      if($val == $value || $val == 'Выберите категорию') {
-        $formClass = $formClass . ' form--invalid';
-        array_push($errorArr, 'form__item--invalid');
-      } else {
-        array_push($errorArr, '');
-      }
-    }
-
+  if ($_POST['lot-name'] == $value) {
+    $errorArr['lot-name'] = 'enter lot name';
+    $errorArr['lot-name-class'] = 'form__item--invalid';
   }
 
-  validation($_POST);
-  $name = basename($_FILES["add-lot-image"]["name"]);
-  move_uploaded_file($_FILES['add-lot-image']['tmp_name'], 'img/' . $name);
+  if ($_POST['lot-rate'] <= 0) {
+    $errorArr['lot-rate'] = 'enter lot rate';
+    $errorArr['lot-rate-class'] = 'form__item--invalid';
+  }
+  if ($_POST['lot-step'] <= 0) {
+    $errorArr['lot-step'] = 'enter lot step';
+    $errorArr['lot-step-class'] = 'form__item--invalid';
+  }
+
+
+  foreach ($errorArr as $key => $value) {
+    if ($value != '') {
+      $errors = true;
+    }
+  }
+  
+  if(!$errors) {
+    $name = basename($_FILES["add-lot-image"]["name"]);
+    move_uploaded_file($_FILES['add-lot-image']['tmp_name'], 'img/' . $name);
+  }
 ?>
 
 <!DOCTYPE html>
