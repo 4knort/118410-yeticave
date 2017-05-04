@@ -19,6 +19,7 @@
   }
 
   validation($_POST);
+  var_dump($_FILES);
 ?>
 
 <!DOCTYPE html>

@@ -21,7 +21,7 @@
       </li>
     </ul>
   </nav>
-  <form class="<?=$data['formClass'];?>" action="add.php" method="post"> <!-- form--invalid -->
+  <form class="<?=$data['formClass'];?>" action="add.php" method="post" enctype="multipart/form-data"> <!-- form--invalid -->
     <h2>Добавление лота</h2>
     <div class="form__container-two">
       <div class="<?='form__item ' . $data['errorArr'][0];?>"> <!-- form__item--invalid -->
