@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="form__input-file">
-        <input class="visually-hidden" type="file" id="photo2" value="">
+        <input class="visually-hidden" type="file" id="photo2" value="" name="add-lot-image">
         <label for="photo2">
           <span>+ Добавить</span>
         </label>

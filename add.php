@@ -16,10 +16,12 @@
         array_push($errorArr, '');
       }
     }
+
   }
 
   validation($_POST);
-  var_dump($_FILES);
+  $name = basename($_FILES["add-lot-image"]["name"]);
+  move_uploaded_file($_FILES['add-lot-image']['tmp_name'], 'img/' . $name);
 ?>
 
 <!DOCTYPE html>
