@@ -1,6 +1,20 @@
 <?php 
   require 'functions.php';
   require 'lots.php';
+?>
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная</title>
+    <link href="css/normalize.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <?php 
+  echo include_template("header", []);
 
   $formClass = 'form form--add-lot container';
   $errorArr = [];
@@ -44,23 +58,17 @@
       ];
       array_push($lots, $newLot);
       $newLotsId = count($lots) - 1;
-      header("Location: lot.php?id=$newLotsId");
+       
+      echo include_template("main-lot", ['lots' => $lots, 'bets' => $bets, 'currentLot' => $lots[$newLotsId], 'minBet' => $minBet]);
+    } else {
+      // Если были ошибки, то снова отображаем форму добавления нового лота
+      echo include_template("main-add-lot", ['formClass' => $formClass, 'errorArr' => $errorArr]);
     }
+  } else {
+    // Если это не POST-запрос отображаем форму добавления лота
+    echo include_template("main-add-lot", ['formClass' => $formClass, 'errorArr' => $errorArr]);
   }
 ?>
-
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная</title>
-    <link href="css/normalize.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-</head>
-<body>
-  <?=include_template("header", []); ?>
-
-  <?=include_template("main-add-lot", ['formClass' => $formClass, 'errorArr' => $errorArr])?>
 
   <?=include_template("footer", []); ?>
 </body>
