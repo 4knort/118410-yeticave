@@ -2,8 +2,6 @@
   require 'functions.php';
   require 'userdata.php';
 
-  session_start();
-
   $formClass = 'form form--add-lot container';
   $errorArr = [];
 

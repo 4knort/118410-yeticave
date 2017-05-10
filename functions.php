@@ -90,4 +90,6 @@
     }
     return $result;
   }
+
+  session_start();
 ?>
