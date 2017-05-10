@@ -13,7 +13,12 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-  <?php 
+  <?php
+
+  if (!isset($_SESSION['user'])) {
+    return header('HTTP/1.0 403 Forbidden');
+  }
+   
   echo include_template("header", []);
 
   $formClass = 'form form--add-lot container';
@@ -45,7 +50,6 @@
     }
 
     if(!$errors) {
-      $formClass = $formClass . ' form--invalid';
       $name = basename($_FILES["add-lot-image"]["name"]);
       move_uploaded_file($_FILES['add-lot-image']['tmp_name'], 'img/' . $name);
 
@@ -62,6 +66,7 @@
       echo include_template("main-lot", ['lots' => $lots, 'bets' => $bets, 'currentLot' => $lots[$newLotsId], 'minBet' => $minBet]);
     } else {
       // Если были ошибки, то снова отображаем форму добавления нового лота
+      $formClass = $formClass . ' form--invalid';
       echo include_template("main-add-lot", ['formClass' => $formClass, 'errorArr' => $errorArr]);
     }
   } else {
