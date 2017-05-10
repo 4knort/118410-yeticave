@@ -1,6 +1,7 @@
 <?php 
   require 'functions.php';
   require 'lots.php';
+
 ?>
 
 <!DOCTYPE html>
