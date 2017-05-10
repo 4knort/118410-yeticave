@@ -1,6 +1,10 @@
 <?php 
   require 'functions.php';
   require 'lots.php';
+  
+  if (!isset($_SESSION['user'])) {
+    return header('HTTP/1.0 403 Forbidden');
+  }
 ?>
 
 
@@ -15,9 +19,6 @@
 <body>
   <?php
 
-  if (!isset($_SESSION['user'])) {
-    return header('HTTP/1.0 403 Forbidden');
-  }
    
   echo include_template("header", []);
 
