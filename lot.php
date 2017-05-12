@@ -3,8 +3,8 @@
   require 'lots.php';
 
   $currentLot = $lots[$_GET['id']];
-  $minBet = 500;
-  $betWasMade = true;
+  $minBet = $currentLot['price'] + 500;
+  $betWasNotMade = true;
 
   if(!isset($currentLot)) {
     return header('HTTP/1.0 404 not found');
@@ -14,7 +14,7 @@
 
   foreach ($testLots as $key => $value) {
     if ($value['name'] == $currentLot['name']) {
-      $betWasMade = false;
+      $betWasNotMade = false;
     }
   }
 
@@ -23,7 +23,7 @@
   if(count($_POST) > 0) {
     $errors = false;
 
-    if ($_POST['cost'] < 0) {
+    if ($_POST['cost'] < $minBet) {
       $errorArr['cost'] = 'error';
     }
 
@@ -40,7 +40,6 @@
         'img' => $currentLot['img'],
         'price' => $currentLot['price'] + $_POST['cost'],
         'date' => time(),
-        'id' => $_GET['id']
       ];
 
       $myLots = [];
@@ -71,7 +70,13 @@
 <body>
   <?=include_template("header", []); ?>
 
-  <?=include_template("main-lot", ['lots' => $lots, 'bets' => $bets, 'currentLot' => $currentLot, 'minBet' => $minBet, 'betWasMade' => $betWasMade]); ?>
+  <?=include_template("main-lot", [
+    'lots' => $lots, 
+    'bets' => $bets, 
+    'currentLot' => $currentLot, 
+    'minBet' => $minBet, 
+    'betWasNotMade' => $betWasNotMade,
+  ]); ?>
 
   <?=include_template("footer", []); ?>
 </body>
