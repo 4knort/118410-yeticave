@@ -46,7 +46,7 @@
                                 Мин. ставка <span><?=$data['currentLot']['price'] + $data['minBet'];?></span>
                             </div>
                         </div>
-                        <form class="lot-item__form" action="https://echo.htmlacademy.ru" method="post">
+                        <form class="lot-item__form" action="lot.php?id=0" method="post">
                             <p class="lot-item__form-item">
                                 <label for="cost">Ваша ставка</label>
                                 <input id="cost" type="number" name="cost" placeholder="<?=$data['currentLot']['price'] +  $data['minBet'] ;?>">
