@@ -4,7 +4,7 @@
 
   $myLots = [];
   if (isset($_COOKIE["myLots"])) {
-    $myLots = json_decode($_COOKIE["myLots"]);
+    $myLots = json_decode($_COOKIE["myLots"], true);
   }
 
 ?>

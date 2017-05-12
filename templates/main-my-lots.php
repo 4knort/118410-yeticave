@@ -28,7 +28,7 @@
             <tr class="rates__item">
                 <td class="rates__info">
                   <div class="rates__img">
-                    <img src="<?=$data['lots']['img'] ;?>" width="54" height="40" alt="Сноуборд">
+                    <img src="<?=$val['img'];?>" width="54" height="40" alt="Сноуборд">
                   </div>
                   <h3 class="rates__title"><a href="lot.html"><?=$val['name'];?></a></h3>
                 </td>
@@ -39,7 +39,7 @@
                   <?=$val['price'];?>
                 </td>
                 <td class="rates__time">
-                  <?=$val['date'];?>
+                  <?=formatDate($val['date']);?>
                 </td>
             </tr>
         <?php endforeach; ?>

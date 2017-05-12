@@ -4,9 +4,18 @@
 
   $currentLot = $lots[$_GET['id']];
   $minBet = 500;
+  $betWasMade = true;
 
   if(!isset($currentLot)) {
     return header('HTTP/1.0 404 not found');
+  }
+
+  $testLots = json_decode($_COOKIE["myLots"], true);
+
+  foreach ($testLots as $key => $value) {
+    if ($value['name'] == $currentLot['name']) {
+      $betWasMade = false;
+    }
   }
 
   $errorArr = [];
@@ -31,10 +40,12 @@
         'img' => $currentLot['img'],
         'price' => $currentLot['price'] + $_POST['cost'],
         'date' => time(),
+        'id' => $_GET['id']
       ];
+
       $myLots = [];
       if (isset($_COOKIE["myLots"])) {
-        $myLots = json_decode($_COOKIE["myLots"]);
+        $myLots = json_decode($_COOKIE["myLots"], true);
         array_push($myLots, $myNewLot);
 
       }
@@ -60,7 +71,7 @@
 <body>
   <?=include_template("header", []); ?>
 
-  <?=include_template("main-lot", ['lots' => $lots, 'bets' => $bets, 'currentLot' => $currentLot, 'minBet' => $minBet]); ?>
+  <?=include_template("main-lot", ['lots' => $lots, 'bets' => $bets, 'currentLot' => $currentLot, 'minBet' => $minBet, 'betWasMade' => $betWasMade]); ?>
 
   <?=include_template("footer", []); ?>
 </body>

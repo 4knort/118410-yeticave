@@ -60,11 +60,11 @@
     $timeDifference = ($now - $date);
 
     if ($timeDifference < $hour) {
-        $formatedDate = '' . $timeDifference / $minute . ' минут назад';
+        $formatedDate = '' . intval($timeDifference / $minute) . ' минут назад';
     } elseif ($timeDifference < $day) {
-        $formatedDate = '' . $timeDifference / $hour . ' часов назад';
+        $formatedDate = '' . intval($timeDifference / $hour) . ' часов назад';
     } else {
-      $formatedDate = '' . date("d:m:y", $date) .' в ' . date("h:i", $date) ;
+      $formatedDate = '' . intval(date("d:m:y", $date)) .' в ' . intval(date("h:i", $date)) ;
     }
 
     return $formatedDate;
